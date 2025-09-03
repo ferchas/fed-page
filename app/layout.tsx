@@ -1,35 +1,41 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-})
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-playfair",
-})
+});
 
 export const metadata: Metadata = {
-  title: "FEDC - Software a medida para impulsar tu PyME",
+  title: "FEDC - Software a medida para impulsar tu negocio",
   description:
-    "En FEDC creamos soluciones digitales que transforman tu negocio. Desarrollo de software personalizado para PYMEs.",
+    "En FEDC creamos soluciones digitales que transforman tu negocio. Desarrollo de software personalizado para tu negocio.",
   generator: "v0.app",
-}
+  icons: {
+    icon: "/favicon.png",
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable} antialiased`}>
+    <html
+      lang="es"
+      className={`${inter.variable} ${playfair.variable} antialiased`}
+    >
       <body className="font-sans">{children}</body>
     </html>
-  )
+  );
 }

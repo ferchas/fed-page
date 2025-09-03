@@ -1,43 +1,43 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function PhotoCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
     {
-      src: "/software-team-collaboration.png",
+      src: "/images/software-team-collaboration.png",
       alt: "Equipo de desarrollo trabajando",
     },
     {
-      src: "/client-meeting.png",
+      src: "/images/client-meeting.png",
       alt: "Reunión con clientes",
     },
     {
-      src: "/multiple-code-interfaces.png",
+      src: "/images/multiple-code-interfaces.png",
       alt: "Pantallas de software desarrollado",
     },
     {
-      src: "/modern-tech-office.png",
+      src: "/images/modern-tech-office.png",
       alt: "Oficinas de trabajo",
     },
-  ]
+  ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % images.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % images.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000)
-    return () => clearInterval(timer)
-  }, [])
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="py-20 bg-muted/30">
@@ -52,7 +52,11 @@ export function PhotoCarousel() {
               {images.map((image, index) => (
                 <div key={index} className="w-full flex-shrink-0">
                   <div className="aspect-video">
-                    <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+                    <img
+                      src={image.src || "/placeholder.svg"}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               ))}
@@ -83,7 +87,9 @@ export function PhotoCarousel() {
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? "bg-primary" : "bg-muted-foreground/30"
+                  index === currentSlide
+                    ? "bg-primary"
+                    : "bg-muted-foreground/30"
                 }`}
                 onClick={() => setCurrentSlide(index)}
               />
@@ -92,5 +98,5 @@ export function PhotoCarousel() {
         </div>
       </div>
     </section>
-  )
+  );
 }

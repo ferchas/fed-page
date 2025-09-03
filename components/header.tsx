@@ -37,11 +37,11 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Image
-              src="/images/fedc-logo.png"
+              src="/images/logo.jpeg"
               alt="FEDC - Software Development Company"
               width={120}
               height={40}
-              className="h-14 w-[94px] rounded-lg bg-gray-100"
+              className="h-14 w-[110px] rounded-lg bg-gray-100"
               priority
             />
           </div>
